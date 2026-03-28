@@ -1,0 +1,15 @@
+services:
+  transport_mysql:              
+    image: mysql:latest
+    container_name: transportPzn
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: transportDb
+    command: --local-infile=1
+    ports:
+      - "3306:3306"              
+    volumes:
+      - transport_mysql_data:/var/lib/mysql
+
+volumes:
+  transport_mysql_data:
